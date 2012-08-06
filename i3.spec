@@ -9,6 +9,7 @@ Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
 URL:		http://i3wm.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	xcb-util-keysyms-devel
+BuildRequires:	xcb-util-wm-devel
 
 %description
 i3 is a tiling window manager, completely written from scratch. The
