@@ -17,6 +17,13 @@ target platforms are GNU/Linux and BSD operating systems, our code
 is Free and Open Source Software (FOSS) under the BSD license. i3 is
 primarily targeted at advanced users and developers.
 
+%package devel
+Summary:	Header files for %{name}
+Group:		Development/Libraries
+
+%description devel
+Header files for %{name}.
+
 %prep
 %setup -q
 
@@ -34,4 +41,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CREDITS CHANGES ChangeLog NEWS README THANKS TODO
+#%doc LICENCE
+%dir %{_sysconfdir}/%{name}
+%config(noreplace) %{_sysconfdir}/%{name}/config
+%config %{_sysconfdir}/%{name}/config.keycodes
+%config %{_sysconfdir}/%{name}/welcome
+%attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/%{name}bar
+%attr(755,root,root) %{_bindir}/%{name}-*
+%{_datadir}/xsessions/%{name}.desktop
+%{_desktopdir}/%{name}.desktop
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/%{name}/ipc.h
