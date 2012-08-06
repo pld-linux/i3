@@ -7,14 +7,14 @@ Group:		X11/Window Managers
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
 # Source0-md5:	11b7e5ecdd837341978c72341cb890c6
 URL:		http://i3wm.org/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	xcb-util-keysyms-devel
 BuildRequires:	xcb-util-wm-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 i3 is a tiling window manager, completely written from scratch. The
-target platforms are GNU/Linux and BSD operating systems, our code
-is Free and Open Source Software (FOSS) under the BSD license. i3 is
+target platforms are GNU/Linux and BSD operating systems, our code is
+Free and Open Source Software (FOSS) under the BSD license. i3 is
 primarily targeted at advanced users and developers.
 
 %package devel
