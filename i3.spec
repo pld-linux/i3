@@ -1,22 +1,29 @@
 Summary:	improved tiling wm
 Name:		i3
-Version:	4.2
+Version:	4.6
 Release:	0.1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	11b7e5ecdd837341978c72341cb890c6
+# Source0-md5:	11901176eea90632384434c371840cfd
 URL:		http://i3wm.org/
+BuildRequires:	asciidoc
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	libev-devel
+BuildRequires:	libxcb-devel
+BuildRequires:	pango-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	startup-notification-devel
+BuildRequires:	xcb-proto
 BuildRequires:	xcb-util-devel
 BuildRequires:	xcb-util-keysyms-devel
 BuildRequires:	xcb-util-wm-devel
+BuildRequires:	xmlto
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXcursor-devel
+BuildRequires:	xorg-lib-libxkbfile
 BuildRequires:	yajl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,12 +44,15 @@ Header files for %{name}.
 %setup -q
 
 %build
-%{__make}
+%{__make} V=1 \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -freorder-blocks-and-partition" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
+	INSTALL="install -p" \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -50,14 +60,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#%doc LICENCE
+%doc LICENSE RELEASE-NOTES-%{version}
 %dir %{_sysconfdir}/%{name}
-%config(noreplace) %{_sysconfdir}/%{name}/config
-%config %{_sysconfdir}/%{name}/config.keycodes
-%config %{_sysconfdir}/%{name}/welcome
-%attr(755,root,root) %{_bindir}/%{name}
-%attr(755,root,root) %{_bindir}/%{name}bar
-%attr(755,root,root) %{_bindir}/%{name}-*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/config
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/config.keycodes
+%attr(755,root,root) %{_bindir}/i3
+%attr(755,root,root) %{_bindir}/i3bar
+%attr(755,root,root) %{_bindir}/i3-config-wizard
+%attr(755,root,root) %{_bindir}/i3-dmenu-desktop
+%attr(755,root,root) %{_bindir}/i3-dump-log
+%attr(755,root,root) %{_bindir}/i3-input
+%attr(755,root,root) %{_bindir}/i3-migrate-config-to-v4
+%attr(755,root,root) %{_bindir}/i3-msg
+%attr(755,root,root) %{_bindir}/i3-nagbar
+%attr(755,root,root) %{_bindir}/i3-sensible-editor
+%attr(755,root,root) %{_bindir}/i3-sensible-pager
+%attr(755,root,root) %{_bindir}/i3-sensible-terminal
 %{_datadir}/xsessions/%{name}.desktop
 %{_desktopdir}/%{name}.desktop
 
