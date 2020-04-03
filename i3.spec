@@ -1,21 +1,25 @@
+# TODO:
+# - package i3-save-tree (requires perl(AnyEvent::I3)
 Summary:	improved tiling wm
 Name:		i3
-Version:	4.14.1
+Version:	4.18
 Release:	0.1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	0f4eec9e5a9f7be060bda41206b13f87
+# Source0-md5:	b71991027c454b0c36e6b04782af8361
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	bison
+BuildRequires:	cairo-devel >= 1.14.4
 BuildRequires:	flex
+BuildRequires:	glib2
 BuildRequires:	libev-devel
 BuildRequires:	libxcb-devel
 BuildRequires:	pango-devel
-BuildRequires:	pcre-devel
+BuildRequires:	pcre-devel >= 8.10
 BuildRequires:	pkgconfig
 BuildRequires:	startup-notification-devel
 BuildRequires:	xcb-proto
@@ -31,6 +35,9 @@ BuildRequires:	xorg-lib-libxkbcommon-devel
 BuildRequires:	xorg-lib-libxkbcommon-x11-devel
 BuildRequires:	xorg-lib-libxkbfile
 BuildRequires:	yajl-devel
+Requires:	cairo >= 1.14.4
+Requires:	glib2
+Requires:	pcre >= 8.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,6 +55,7 @@ Header files for %{name}.
 
 %prep
 %setup -q
+%{__sed} -i -e '1s,/usr/bin/env perl,%{__perl},' i3-save-tree i3-migrate-config-to-v4 i3-dmenu-desktop
 
 %build
 %{__aclocal}
@@ -84,7 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/i3-migrate-config-to-v4
 %attr(755,root,root) %{_bindir}/i3-msg
 %attr(755,root,root) %{_bindir}/i3-nagbar
-%attr(755,root,root) %{_bindir}/i3-save-tree
+# requires perl(AnyEvent::I3)
+#%attr(755,root,root) %{_bindir}/i3-save-tree
 %attr(755,root,root) %{_bindir}/i3-sensible-editor
 %attr(755,root,root) %{_bindir}/i3-sensible-pager
 %attr(755,root,root) %{_bindir}/i3-sensible-terminal
