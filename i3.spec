@@ -1,7 +1,7 @@
 Summary:	improved tiling wm
 Name:		i3
 Version:	4.18
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
@@ -114,4 +114,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%dir %{_includedir}/%{name}
 %{_includedir}/%{name}/ipc.h
