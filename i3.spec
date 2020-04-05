@@ -1,9 +1,7 @@
-# TODO:
-# - package i3-save-tree (requires perl(AnyEvent::I3)
 Summary:	improved tiling wm
 Name:		i3
 Version:	4.18
-Release:	0.1
+Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
@@ -92,8 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/i3-migrate-config-to-v4
 %attr(755,root,root) %{_bindir}/i3-msg
 %attr(755,root,root) %{_bindir}/i3-nagbar
-# requires perl(AnyEvent::I3)
-#%attr(755,root,root) %{_bindir}/i3-save-tree
+%attr(755,root,root) %{_bindir}/i3-save-tree
 %attr(755,root,root) %{_bindir}/i3-sensible-editor
 %attr(755,root,root) %{_bindir}/i3-sensible-pager
 %attr(755,root,root) %{_bindir}/i3-sensible-terminal
