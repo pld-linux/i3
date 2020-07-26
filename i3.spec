@@ -1,11 +1,11 @@
 Summary:	improved tiling wm
 Name:		i3
-Version:	4.18.1
+Version:	4.18.2
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	bca54bb6b352e4eda0cc667904248170
+# Source0-md5:	7d9d059c32b31ef90d48fed5338dd6cc
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
 BuildRequires:	autoconf >= 2.69
