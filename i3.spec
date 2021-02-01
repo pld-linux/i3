@@ -19,6 +19,7 @@ BuildRequires:	ninja
 BuildRequires:	pango-devel
 BuildRequires:	pcre-devel >= 8.10
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	startup-notification-devel
 BuildRequires:	xcb-proto
 BuildRequires:	xcb-util-cursor-devel
@@ -57,11 +58,11 @@ Header files for %{name}.
 
 %build
 %meson build
-%meson_build -C build
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%meson_install -C build
+%ninja_install -C build
 
 rm -r $RPM_BUILD_ROOT%{_docdir}/i3
 
