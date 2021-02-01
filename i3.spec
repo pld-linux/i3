@@ -1,11 +1,11 @@
 Summary:	improved tiling wm
 Name:		i3
-Version:	4.19
+Version:	4.19.1
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.xz
-# Source0-md5:	4323da862f6fd60a84b322f663c9ce7e
+# Source0-md5:	9da20eac1a34a6cfe7c145ba24421b5c
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
 BuildRequires:	bison
