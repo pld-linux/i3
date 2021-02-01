@@ -21,6 +21,7 @@ BuildRequires:	pcre-devel >= 8.10
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	startup-notification-devel
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xcb-proto
 BuildRequires:	xcb-util-cursor-devel
 BuildRequires:	xcb-util-devel
@@ -33,6 +34,7 @@ BuildRequires:	xorg-lib-libXcursor-devel
 BuildRequires:	xorg-lib-libxkbcommon-devel
 BuildRequires:	xorg-lib-libxkbcommon-x11-devel
 BuildRequires:	xorg-lib-libxkbfile
+BuildRequires:	xz
 BuildRequires:	yajl-devel
 Requires:	cairo >= 1.14.4
 Requires:	glib2
