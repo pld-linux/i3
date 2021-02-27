@@ -4,7 +4,7 @@ Version:	4.19.2
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
-Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.xz
+Source0:	https://i3wm.org/downloads/%{name}-%{version}.tar.xz
 # Source0-md5:	8c38be87d6ec7d734065dcc5864abb37
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
