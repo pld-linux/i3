@@ -1,0 +1,41 @@
+From d463eb0c2f630d026e9ced0f5f26616f1bf78bc0 Mon Sep 17 00:00:00 2001
+From: Jan Palus <jpalus@fastmail.com>
+Date: Thu, 18 Mar 2021 20:39:07 +0100
+Subject: [PATCH] Maintain runtime ws assignments after moving to output
+
+---
+ src/workspace.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/src/workspace.c b/src/workspace.c
+index 739358a8..94161a2e 100644
+--- a/src/workspace.c
++++ b/src/workspace.c
+@@ -1044,6 +1044,24 @@ void workspace_move_to_output(Con *ws, Output *output) {
+ 
+     ewmh_update_desktop_properties();
+ 
++    struct Workspace_Assignment *assignment;
++    bool assignment_found = false;
++    TAILQ_FOREACH (assignment, &ws_assignments, ws_assignments) {
++        if (strcmp(ws->name, assignment->name) == 0) {
++            FREE(assignment->output);
++            assignment->output = sstrdup(output_primary_name(output));
++            assignment_found = true;
++            break;
++        }
++    }
++
++    if (!assignment_found) {
++        assignment = scalloc(1, sizeof(struct Workspace_Assignment));
++        assignment->name = sstrdup(ws->name);
++        assignment->output = sstrdup(output_primary_name(output));
++        TAILQ_INSERT_TAIL(&ws_assignments, assignment, ws_assignments);
++    }
++
+     if (!previously_visible_ws) {
+         return;
+     }
+-- 
+2.31.0
+

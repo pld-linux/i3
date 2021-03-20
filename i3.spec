@@ -1,11 +1,12 @@
 Summary:	improved tiling wm
 Name:		i3
 Version:	4.19.2
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Window Managers
 Source0:	https://i3wm.org/downloads/%{name}-%{version}.tar.xz
 # Source0-md5:	8c38be87d6ec7d734065dcc5864abb37
+Patch0:		%{name}-remember_ws_output.patch
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
 BuildRequires:	bison
@@ -56,6 +57,7 @@ Header files for %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 %{__sed} -i -e '1s,/usr/bin/env perl,%{__perl},' i3-save-tree i3-migrate-config-to-v4 i3-dmenu-desktop
 
 %build
