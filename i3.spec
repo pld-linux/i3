@@ -1,11 +1,11 @@
 Summary:	improved tiling wm
 Name:		i3
-Version:	4.20
+Version:	4.20.1
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	https://i3wm.org/downloads/%{name}-%{version}.tar.xz
-# Source0-md5:	8ad34b37f126899e7248bf8e8c4fcb4a
+# Source0-md5:	0c94d32b7a132b7dfce49b12960dfb7d
 Patch0:		%{name}-remember_ws_output.patch
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
@@ -19,6 +19,7 @@ BuildRequires:	meson >= 0.45.0
 BuildRequires:	ninja
 BuildRequires:	pango-devel
 BuildRequires:	pcre-devel >= 8.10
+BuildRequires:	perl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	startup-notification-devel
