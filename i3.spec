@@ -1,11 +1,11 @@
 Summary:	improved tiling wm
 Name:		i3
-Version:	4.22
+Version:	4.23
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	https://i3wm.org/downloads/%{name}-%{version}.tar.xz
-# Source0-md5:	61c7787808344e2871079a9c93e751c2
+# Source0-md5:	ea71162d40b403b6098fe833697b747a
 Patch0:		%{name}-remember_ws_output.patch
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
@@ -15,7 +15,7 @@ BuildRequires:	flex
 BuildRequires:	glib2
 BuildRequires:	libev-devel
 BuildRequires:	libxcb-devel
-BuildRequires:	meson >= 0.45.0
+BuildRequires:	meson >= 0.47.0
 BuildRequires:	ninja
 BuildRequires:	pango-devel
 BuildRequires:	pcre2-8-devel >= 10
