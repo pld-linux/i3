@@ -1,11 +1,11 @@
 Summary:	improved tiling wm
 Name:		i3
-Version:	4.23
+Version:	4.24
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	https://i3wm.org/downloads/%{name}-%{version}.tar.xz
-# Source0-md5:	ea71162d40b403b6098fe833697b747a
+# Source0-md5:	239a821e091e383fb0e3981eac6f8ae9
 Patch0:		%{name}-remember_ws_output.patch
 URL:		http://i3wm.org/
 BuildRequires:	asciidoc
