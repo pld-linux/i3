@@ -58,7 +58,7 @@ Header files for %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 %{__sed} -i -e '1s,/usr/bin/env perl,%{__perl},' i3-save-tree i3-migrate-config-to-v4 i3-dmenu-desktop
 
 %build
