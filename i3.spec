@@ -62,12 +62,12 @@ Header files for %{name}.
 %{__sed} -i -e '1s,/usr/bin/env perl,%{__perl},' i3-save-tree i3-migrate-config-to-v4 i3-dmenu-desktop
 
 %build
-%meson build
-%ninja_build -C build
+%meson
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%ninja_install -C build
+%meson_install
 
 rm -r $RPM_BUILD_ROOT%{_docdir}/i3
 
