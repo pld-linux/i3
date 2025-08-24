@@ -7,7 +7,7 @@ Group:		X11/Window Managers
 Source0:	https://i3wm.org/downloads/%{name}-%{version}.tar.xz
 # Source0-md5:	239a821e091e383fb0e3981eac6f8ae9
 Patch0:		%{name}-remember_ws_output.patch
-URL:		http://i3wm.org/
+URL:		https://i3wm.org/
 BuildRequires:	asciidoc
 BuildRequires:	bison
 BuildRequires:	cairo-devel >= 1.14.4
