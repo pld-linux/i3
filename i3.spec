@@ -13,14 +13,18 @@ BuildRequires:	asciidoc
 BuildRequires:	bison
 BuildRequires:	cairo-devel >= 1.14.4
 BuildRequires:	flex
-BuildRequires:	glib2
+BuildRequires:	gcc >= 6:4.7
+BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libev-devel
+# xcb xcb-xkb xcb-xinerama xcb-randr xcb-shape
 BuildRequires:	libxcb-devel
 BuildRequires:	meson >= 0.47.0
-BuildRequires:	ninja
-BuildRequires:	pango-devel
+BuildRequires:	ninja >= 1.5
+# pangocairo
+BuildRequires:	pango-devel >= 1:1.8
 BuildRequires:	pcre2-8-devel >= 10
 BuildRequires:	perl-devel
+BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	startup-notification-devel
@@ -40,7 +44,6 @@ BuildRequires:	xorg-lib-libxkbfile
 BuildRequires:	xz
 BuildRequires:	yajl-devel
 Requires:	cairo >= 1.14.4
-Requires:	glib2
 Requires:	pcre2-8 >= 10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -95,7 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/config
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/config.keycodes
 %attr(755,root,root) %{_bindir}/i3
-%attr(755,root,root) %{_bindir}/i3bar
 %attr(755,root,root) %{_bindir}/i3-config-wizard
 %attr(755,root,root) %{_bindir}/i3-dmenu-desktop
 %attr(755,root,root) %{_bindir}/i3-dump-log
@@ -108,6 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/i3-sensible-pager
 %attr(755,root,root) %{_bindir}/i3-sensible-terminal
 %attr(755,root,root) %{_bindir}/i3-with-shmlog
+%attr(755,root,root) %{_bindir}/i3bar
 %{_datadir}/xsessions/i3.desktop
 %{_desktopdir}/i3.desktop
 %{_mandir}/man1/i3.1*
