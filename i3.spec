@@ -21,7 +21,7 @@ BuildRequires:	pango-devel
 BuildRequires:	pcre2-8-devel >= 10
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	startup-notification-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xcb-proto
