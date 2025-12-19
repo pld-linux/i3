@@ -1,12 +1,12 @@
 Summary:	Improved tiling wm
 Summary(pl.UTF-8):	Ulepszony kaflowy zarządca okien
 Name:		i3
-Version:	4.24
+Version:	4.25
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	https://i3wm.org/downloads/%{name}-%{version}.tar.xz
-# Source0-md5:	239a821e091e383fb0e3981eac6f8ae9
+# Source0-md5:	4283b4f87d84d36815aa00897972fa01
 Patch0:		%{name}-remember_ws_output.patch
 URL:		https://i3wm.org/
 BuildRequires:	asciidoc
